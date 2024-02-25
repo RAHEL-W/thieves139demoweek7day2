@@ -28,18 +28,21 @@ function favorite_food_dishes(object)  {
     for (let keys in object){
         // if condition, which means if value of dictionery() is object and not empty
         if (typeof object[keys] === 'object' && object[keys] !== null){
-
-            let fev = "my favorite"+' '+ keys +  object[keys]
-
-            console.log(`${fev}`)
-
-            
-            // favorite_food_dishes(object, object[keys]) 
-            
+              console.log(`${keys}`)
+            favorite_food_dishes(object[keys])       
         }
+        // else if  (Array.isArray(object[keys] === 'object' && object[keys] !== null) )  {
+             
+        //     let fev = "my favorite" +' '+ keys +  object[keys]
+
+        //     console.log(`${fev}`)
+        // } 
+           
+            
+        
         // if condition is false
      else {
-        console.log("my favorite"+' '+keys + " ",object[keys]);
+        console.log("my favorite"+' '+[keys] + " ",object[keys]);
     }
     }
 }
@@ -95,7 +98,6 @@ class Person1{
  Age_inc = (age) =>{
         this.age ++
     }
-    
 }
 
 const new1 = new Person1("Rahel", 23)
@@ -154,6 +156,67 @@ fetch('http://ergast.com/api/f1/2008/5/driverStandings.json').then((response) =>
 
 
 
+// ------------Description---------
+// Create a function that given a list which represents street lights,
+// determine if an outage has occurred. A street with a total
+// number of "F" greater than or equal to 2 returns "Outage", anything below returns "Power"
+// ----------Example----------
+// solution([ 'T', 'F', 'F', 'F' ]) => "Outage"
+// solution([ 'T', 'T', 'T', 'T', 'F' ]) => "Power"
+
+
+//   creatting function
+// for loop
+// if condithioon
+
+
+function s_light(list){
+    let  Count = 0
+    for(let i=0; i< list.length; i++){
+        if(list[i] == 'F'){
+            Count++;
+        }  
+    }
+  if (Count >= 2){
+    console.log('Outage')
+  }
+ else{
+    console.log('Power') 
+ }  
+}
+
+s_light([ 'T', 'T', 'T', 'T', 'F' ])
 
 
 
+// =================================codewars==============================================
+// Counting sheep....
+
+const count_sheeps = (sheep) =>{
+    let count = 0
+   for(i=0; i<sheep.length; i++){
+    if(sheep[i] === true){
+        count +=1;
+    }
+   }
+     
+  console.log(count);
+  
+};
+
+
+
+
+ count_sheeps([true, true, true ]);   
+
+//  A Needle in the Haystack
+
+ const find_needle = (haystack) =>{
+    for(i=0; i<haystack.length; i++){
+        if(haystack[i] === 'needle'){
+           console.log(i)
+        }
+    }
+ }
+
+ find_needle(["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] )
